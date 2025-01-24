@@ -50,7 +50,7 @@ def points_scan(xdat, ival, jval):
                     xval = xdat[0]
                     if xval == 'X':
                         kiter = -1
-                        while mirvector1 in points[str(ival - kiter * ikl) + "-" + str(
+                        while vector in points[str(ival - kiter * ikl) + "-" + str(
                                 jval - kiter * jml)]:  # and (ival - kiter*ikl > 0) and (ival - kiter*ikl < sqq) and (jval - kiter*jml > 0) and (jval - kiter*jml < sqq):  # Проверяем, есть ли vector в точке T+1 по линии, соседней + проверка выхода за границу
                             lineX[str(ival - kiter * ikl) + '-' + str(jval - kiter * jml) + '-' + str(
                                 vector)] = xval  # Заносим точку T+1 с mirvector в lineX
@@ -60,7 +60,7 @@ def points_scan(xdat, ival, jval):
                             kiter += 1
                     elif xval == '0':
                         kiter1 = -1
-                        while mirvector1 in points[str(ival - kiter1 * ikl) + "-" + str(jval - kiter1 * jml)]: #and (ival - kiter1 * ikl > 0) and (ival - kiter1 * ikl < sq) and (jval - kiter1 * jml > 0) and (jval - kiter1 * jml < sq):  # Проверяем, есть ли vector в точке T+1 по линии, соседней с проверкой выхода за границу
+                        while vector in points[str(ival - kiter1 * ikl) + "-" + str(jval - kiter1 * jml)]: #and (ival - kiter1 * ikl > 0) and (ival - kiter1 * ikl < sq) and (jval - kiter1 * jml > 0) and (jval - kiter1 * jml < sq):  # Проверяем, есть ли vector в точке T+1 по линии, соседней с проверкой выхода за границу
                             line0[str(ival - kiter1 * ikl) + '-' + str(jval - kiter1 * jml) + '-' + str(
                                 vector)] = xval  # Заносим точку T+1 с mirvector в lineX
                             line0[str(ival) + '-' + str(jval) + '-' + str(vector)] = xval  #
