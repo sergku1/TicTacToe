@@ -1,5 +1,5 @@
 # TicTacToe
-Programa Kryžiukai-nuliukai skirta žaisti lentoi, kurios konfigūracija nuo 3*3 iki 12*12.
+Programa Kryžiukai-nuliukai skirta žaisti lentoi, kurios konfigūracija nuo 3 ant 3 iki 12 ant 12.
 Yra dvi žaidimo versijos – tik su tekstine sąsaja, įvedant judesį 'i-j' formatu. 
 Pažymėtų laukų išvedimas į žurnalą spausdinant. Sėkmės balas nustatomas pagal matematinį
 algoritmą. Iš įvesto taško tikriname, ar nėra artimos kaimynystės ir jos kryptis.
