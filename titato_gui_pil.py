@@ -60,10 +60,7 @@ def points_scan(xdat, ival, jval):
                             kiter += 1
                     elif xval == '0':
                         kiter1 = -1
-                        while mirvector1 in points[str(ival - kiter1 * ikl) + "-" + str(jval - kiter1 * jml)] and (
-                                ival - kiter1 * ikl > 0) and (ival - kiter1 * ikl < sq) and (
-                                jval - kiter1 * jml > 0) and (
-                                jval - kiter1 * jml < sq):  # Проверяем, есть ли vector в точке T+1 по линии, соседней с проверкой выхода за границу
+                        while mirvector1 in points[str(ival - kiter1 * ikl) + "-" + str(jval - kiter1 * jml)]: #and (ival - kiter1 * ikl > 0) and (ival - kiter1 * ikl < sq) and (jval - kiter1 * jml > 0) and (jval - kiter1 * jml < sq):  # Проверяем, есть ли vector в точке T+1 по линии, соседней с проверкой выхода за границу
                             line0[str(ival - kiter1 * ikl) + '-' + str(jval - kiter1 * jml) + '-' + str(
                                 vector)] = xval  # Заносим точку T+1 с mirvector в lineX
                             line0[str(ival) + '-' + str(jval) + '-' + str(vector)] = xval  #
@@ -76,6 +73,8 @@ def points_scan(xdat, ival, jval):
                 pass
         i += 1
         print(f'points = {points}')
+        print(f'lineX = {lineX}')
+        print(f'line0 = {line0}')
     return points, lineX, line0
 
 
