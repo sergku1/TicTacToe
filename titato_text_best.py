@@ -43,7 +43,7 @@ def points_scan(xdat, ival, jval):
                     xval = xdat[0]
                     if xval == 'X':
                         kiter = -1
-                        while mirvector1 in points[str(ival - kiter * ikl) + "-" + str(
+                        while vector in points[str(ival - kiter * ikl) + "-" + str(
                                 jval - kiter * jml)]:  # and (ivalu - kiter*ikl > 0) and (ivalu - kiter*ikl < sq) and (jvalu - kiter*jml > 0) and (jvalu - kiter*jml < sq):  # Проверяем, есть ли vector в точке T+1 по линии, соседней + проверка выхода за границу
                             lineX[str(ival - kiter * ikl) + '-' + str(jval - kiter * jml) + '-' + str(
                                 vector)] = xval  # Заносим точку T+1 с mirvector в lineX
@@ -51,9 +51,10 @@ def points_scan(xdat, ival, jval):
                             if len(lineX) >= int(lintowin):
                                 print(f'Win X! line = {len(lineX)} XXXXXXXXXXXXXXXXXXXXXXXXXXXx')
                             kiter += 1
+                        lineX[str(ival + ikl) + '-' + str(jval + jml) + '-' + str(mirvector1)] = xval  # Заносим точку T с mirvector
                     elif xval == '0':
                         kiter1 = -1
-                        while mirvector1 in points[str(ival - kiter1 * ikl) + "-" + str(jval - kiter1 * jml)] and (
+                        while vector in points[str(ival - kiter1 * ikl) + "-" + str(jval - kiter1 * jml)] and (
                                 ival - kiter1 * ikl > 0) and (ival - kiter1 * ikl < sq) and (
                                 jval - kiter1 * jml > 0) and (
                                 jval - kiter1 * jml < sq):  # Проверяем, есть ли vector в точке T+1 по линии, соседней с проверкой выхода за границу
@@ -63,6 +64,7 @@ def points_scan(xdat, ival, jval):
                             if len(line0) >= int(lintowin):
                                 print(f'Win 0! line = {len(line0)} 0000000000000000000')
                             kiter1 += 1
+                        lineX[str(ival + ikl) + '-' + str(jval + jml) + '-' + str(mirvector1)] = xval  # Заносим точку T с mirvector
                 else:
                     points[str(ival) + '-' + str(jval)] = xdat  # Если в ячейке T1 нету соответствующего T0
             except KeyError:

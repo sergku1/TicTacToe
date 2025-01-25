@@ -123,6 +123,7 @@ class MyWindow(QtWidgets.QMainWindow, gui_tictactoe.Ui_MainWindow):
         sq = self.spinBox.value()
         self.lineEdit.setFocus()
         self.lineEdit.returnPressed.connect(self.click_method)  #
+        #
 
 
 
