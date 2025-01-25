@@ -38,7 +38,7 @@ def points_scan(xdat, ival, jval):
                         continue
                     else:  # Нет обратного вектора т к точка стояла отдельно
                         xdate1 = points[str(ival + ik) + "-" + str(jval + jm)]
-                        xdate1.append(mirvector)  # Считаем
+                        xdate1.append(mirvector)  # Добавляем второй, обратный вектор
                         points[str(ival + ik) + "-" + str(jval + jm)] = xdate1  # И заносим в T1
                     ikl, jml = numb(vector)
                     i1 = vector
@@ -48,16 +48,17 @@ def points_scan(xdat, ival, jval):
                         rr1 = 4
                     mirvector1 = i1 + rr1  # считаем вектор в противоположном напаравлении
                     xval = xdat[0]
-                    if xval == 'X':
+                    if xval == 'X':  #
                         kiter = -1
                         while vector in points[str(ival - kiter * ikl) + "-" + str(
-                                jval - kiter * jml)]:  # and (ival - kiter*ikl > 0) and (ival - kiter*ikl < sqq) and (jval - kiter*jml > 0) and (jval - kiter*jml < sqq):  # Проверяем, есть ли vector в точке T+1 по линии, соседней + проверка выхода за границу
+                                jval - kiter * jml)]:  # Проверяем, есть ли vector в точке T+1 по линии, соседней + проверка выхода за границу
                             lineX[str(ival - kiter * ikl) + '-' + str(jval - kiter * jml) + '-' + str(
                                 vector)] = xval  # Заносим точку T+1 с mirvector в lineX
                             lineX[str(ival) + '-' + str(jval) + '-' + str(vector)] = xval  #
                             if len(lineX) >= int(lintowin):
                                 print(f'Win X! line = {len(lineX)} XXXXXXXXXXXXXXXXXXXXXXXXXXXx')
                             kiter += 1
+                        lineX[str(ival + ikl) + '-' + str(jval + jml) + '-' + str(mirvector1)] = xval  # Заносим точку T с mirvector
                     elif xval == '0':
                         kiter1 = -1
                         while vector in points[str(ival - kiter1 * ikl) + "-" + str(jval - kiter1 * jml)]: #and (ival - kiter1 * ikl > 0) and (ival - kiter1 * ikl < sq) and (jval - kiter1 * jml > 0) and (jval - kiter1 * jml < sq):  # Проверяем, есть ли vector в точке T+1 по линии, соседней с проверкой выхода за границу
@@ -67,6 +68,7 @@ def points_scan(xdat, ival, jval):
                             if len(line0) >= int(lintowin):
                                 print(f'Win 0! line = {len(line0)} 0000000000000000000')
                             kiter1 += 1
+                        line0[str(ival + ikl) + '-' + str(jval + jml) + '-' + str(mirvector1)] = xval  # Заносим точку T с mirvector
                 else:
                     points[str(ival) + '-' + str(jval)] = xdat  # Если в ячейке T1 нету соответствующего T0
             except KeyError:
@@ -123,8 +125,6 @@ class MyWindow(QtWidgets.QMainWindow, gui_tictactoe.Ui_MainWindow):
         self.lineEdit.returnPressed.connect(self.click_method)  #
 
 
-    def winwin(self):
-        self.label_6.setTxt('Win X X X X X! You win!!!!!!!!!')
 
     def clear_all(self):
         self.spinBox.setValue(3)
