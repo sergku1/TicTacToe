@@ -179,10 +179,10 @@ class MyWindow(QtWidgets.QMainWindow, gui_tictactoe.Ui_MainWindow):
         lintowin = self.spinBox_2.value()
         self.lineEdit.setText('')
         points_scan(xdate, ivalue, jvalue)
-        if len(lineX) == aq:
-            self.label_4.setText('X Win!!!!')
-        elif len(line0) == aq:
-            self.label_4.setText('X Win!!!!')
+        if len(lineX) == sq:
+            self.lineEdit.setText('XXX Win!!!!')
+        elif len(line0) == sq:
+            self.lineEdit.setText('000 Win!!!!')
         self.pagalve(points)
         self.label_7.setText(str(points))
         if xvalue == 'X':
