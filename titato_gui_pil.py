@@ -1,16 +1,13 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 # TicTacToe with simplif structure and GUI on PyQt
-import os
+#import os
 import sys
-from typing import Any
-import cv2
-import numpy as np
 from PyQt5 import QtWidgets, QtCore
-from PyQt5.QtCore import Qt
+#from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QPixmap
-from PyQt5.QtWidgets import QLineEdit
-from keyboard import add_hotkey
+#from PyQt5.QtWidgets import QLineEdit
+#from keyboard import add_hotkey
 import gui_tictactoe
 from PIL import Image
 points = {}
